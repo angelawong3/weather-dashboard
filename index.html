@@ -21,13 +21,28 @@
     <title>Weather Dashboard</title>
   </head>
   <body>
+    <!-- header -->
     <header>
-      <h1 class="fixed-top text-dark bg-primary text-center">
-        Weather Dashboard
-      </h1>
+      <h1 class="bg-primary text-center text-white">Weather Dashboard</h1>
     </header>
 
-    <main></main>
+    <!-- main -->
+    <main id="search-area">
+      <!-- section to search -->
+      <section id="search-for-city">
+        <p class="font-weight-bolder">Search for a City</p>
+        <input class="form-control" type="text" placeholder="Birmingham" />
+        <button type="button" class="btn btn-info">Search</button>
+      </section>
+      <br />
+      <!-- section to see history -->
+      <section id="search-history">
+        <!-- div*8 delivered in js -->
+      </section>
+      <!-- section to check current weather -->
+      <section></section>
+      <!-- seaction for 5 days forecast -->
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
