@@ -27,9 +27,9 @@
     </header>
 
     <!-- main -->
-    <main id="search-area">
+    <main>
       <!-- section to search -->
-      <section id="search-for-city">
+      <section id="search-city">
         <p class="font-weight-bolder">Search for a City</p>
         <input class="form-control" type="text" placeholder="Birmingham" />
         <button type="button" class="btn btn-info">Search</button>
@@ -40,9 +40,18 @@
         <!-- div*8 delivered in js -->
       </section>
       <!-- section to check current weather -->
-      <section></section>
+      <section id="city-current"></section>
       <!-- seaction for 5 days forecast -->
+      <section id="5-day-forecast">
+        <p class="font-weight-bolder">5-Day Forecast</p>
+        <div id="day1"></div>
+        <div id="day2"></div>
+        <div id="day3"></div>
+        <div id="day4"></div>
+        <div id="day5"></div>
+      </section>
     </main>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
