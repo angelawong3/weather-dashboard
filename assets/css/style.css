@@ -1,0 +1,20 @@
+:root {
+  --melon: #fec5bbff;
+  --pale-pink: #fcd5ceff;
+  --misty-rose: #fae1ddff;
+  --seashell: #f8edebff;
+  --platinum: #e8e8e4ff;
+  --platinum-2: #d8e2dcff;
+  --linen: #ece4dbff;
+  --unbleached-silk: #ffe5d9ff;
+  --peach-puff: #ffd7baff;
+  --peach-crayola: #fec89aff;
+}
+
+header {
+  font-family: "Permanent Marker", cursive;
+}
+
+main {
+  font-family: "Quicksand", sans-serif;
+}
