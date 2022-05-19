@@ -1,20 +1,28 @@
 :root {
-  --melon: #fec5bbff;
+  --royal-purple: #6a4c93ff;
+  --medium-purple: #9381ffff;
+  --pale-purple-pantone: #feeafaff;
   --pale-pink: #fcd5ceff;
   --misty-rose: #fae1ddff;
   --seashell: #f8edebff;
-  --platinum: #e8e8e4ff;
-  --platinum-2: #d8e2dcff;
-  --linen: #ece4dbff;
-  --unbleached-silk: #ffe5d9ff;
   --peach-puff: #ffd7baff;
   --peach-crayola: #fec89aff;
 }
 
 header {
+  background-image: linear-gradient(
+    to right,
+    var(--medium-purple),
+    var(--pale-purple-pantone)
+  );
   font-family: "Permanent Marker", cursive;
+  padding: 5px;
 }
 
 main {
   font-family: "Quicksand", sans-serif;
+}
+
+h3 {
+  color: var(--royal-purple);
 }

@@ -26,67 +26,44 @@
   <body>
     <!-- header -->
     <header>
-      <h2 class="bg-primary text-center text-white">Weather Dashboard</h2>
+      <h2 class="text-center text-white">Weather Dashboard</h2>
     </header>
 
     <!-- main -->
     <main>
-      <!-- section to search -->
-      <section id="search-city">
-        <p class="font-weight-bolder">Search for a City</p>
-        <input
-          id="input-city"
-          class="form-control"
-          type="text"
-          placeholder="e.g. Birmingham"
-        />
-        <button id="searchBtn" type="button" class="btn btn-info">
-          Search
-        </button>
-      </section>
-      <br />
-      <!-- section to see history -->
-      <section id="search-history">
-        <!-- div*8 delivered in js -->
-      </section>
-      <!-- section to check current weather -->
-      <section id="city-current"></section>
-      <!-- section for 5 days forecast -->
-      <section id="5-day-forecast">
-        <p class="font-weight-bolder">5-Day Forecast</p>
-        <div class="card-deck">
-          <div class="card">
-            <div id="card-1" class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">1</p>
+      <!-- content row-->
+      <div class="row g-0">
+        <div class="col-sm-12 col-md-3 border">
+          <div>
+            <h3 class="mt-3 text-center">Search Form</h3>
+            <hr />
+            <form class="p-3" id="search-form">
+              <div class="mb-3">
+              <input 
+                ype="text" 
+                class="form-control" 
+                id="searchInput" 
+                placeholder="Enter city name"
+              />
             </div>
-          </div>
-          <div class="card">
-            <div id="card-2" class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">2</p>
+            <div>
+            <button type="submit" class="btn btn-info btn-block">Search</button>
             </div>
-          </div>
-          <div class="card">
-            <div id="card-3" class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">3</p>
-            </div>
-          </div>
-          <div class="card">
-            <div id="card-4" class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">4</p>
-            </div>
-          </div>
-          <div class="card">
-            <div id="card-5" class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">5</p>
-            </div>
-          </div>
+          </form>
         </div>
-      </section>
+
+          <!-- seach history -->
+          <div id="search-history">Search History</div>
+        </div>
+
+      <!-- shd be rendered in the js file -->
+      <!-- section to check current weather and forecast-->
+        <div class="col-sm-12 col-md-9 border">
+          <!-- col for current weather -->
+          <div id="city-current">Current</div>
+        <!-- col for 5 days forecast -->
+         <div id="5-day-forecast">Forecast</div>
+        </div>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
