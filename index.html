@@ -26,7 +26,7 @@
   <body>
     <!-- header -->
     <header>
-      <h2 class="text-center text-white">Weather Dashboard</h2>
+      <h1 class="text-center text-white">Weather Dashboard</h2>
     </header>
 
     <!-- main -->
@@ -57,22 +57,71 @@
             <h4 class="mt-3 text-center">Search history</h4>
             <hr />
             <ul class="list-group">
-              <li class="list-group-item border-0">Cras justo odio</li>
-              <li class="list-group-item border-0">Dapibus ac facilisis in</li>
-              <li class="list-group-item border-0 active">Morbi leo risus</li>
-              <li class="list-group-item border-0">Porta ac consectetur ac</li>
-              <li class="list-group-item border-0">Vestibulum at eros</li>
+              <li class="list-group-item border-0">Birmingham</li>
+              <li class="list-group-item border-0">London</li>
+              <li class="list-group-item border-0 active">Hong Kong</li>
+              <li class="list-group-item border-0">Tokyo</li>
+              <li class="list-group-item border-0">Amsterdam</li>
             </ul>
           </div>
         </div>
 
       <!-- shd be rendered in the js file -->
       <!-- section to check current weather and forecast-->
-        <div class="col-sm-12 col-md-9">
+        <div class="col-sm-12 col-md-9 p-5">
           <!-- col for current weather -->
-          <div id="city-current">Current</div>
+          <div id="city-current" class="weather-card">
+            <div class="text-center">
+              <h5 class="text-center p-2">Birmingham</h5>
+              <h6 class="text-center">Thursday, 19th May, 2022</h6>
+              <img 
+              src="http://openweathermap.org/img/w/04d.png" 
+              alt="weather icon"/>  
+            </div>
+            <!-- weather metric div -->
+            <div>
+              <div class="row no-gutters">
+                <div class="col-sm-12 col-md-4 p-2">Temperature</div>
+                <div class="col-sm-12 col-md-8 p-2">16 &deg; C</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col-sm-12 col-md-4 p-2">Humidity</div>
+                <div class="col-sm-12 col-md-8 p-2">20 &percnt;</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col-sm-12 col-md-4 p-2">Wind Speed</div>
+                <div class="col-sm-12 col-md-8 p-2">10 MPH</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col-sm-12 col-md-4 p-2">UN Index</div>
+                <div class="col-sm-12 col-md-8 p-2">
+                  <span class="bg-secondary text-white px-3 rounded-2">1.5</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
         <!-- col for 5 days forecast -->
-         <div id="5-day-forecast">Forecast</div>
+         <div id="5-day-forecast">
+           <h5 class="text-left">5-day Forecast</h5>
+           <hr />
+           <div class="card" style="width: 12rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+         </div>
         </div>
     </main>
 
