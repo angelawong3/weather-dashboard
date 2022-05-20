@@ -26,9 +26,14 @@ main {
 h3,
 h4 {
   color: var(--royal-purple);
+  font-family: "Permanent Marker", cursive;
 }
 
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
+}
+
+.weather-card {
+  background-color: var(--pale-purple-pantone);
 }
