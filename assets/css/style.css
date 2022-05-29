@@ -3,10 +3,6 @@
   --medium-purple: #9381ffff;
   --pale-purple-pantone: #feeafaff;
   --pale-pink: #fcd5ceff;
-  --misty-rose: #fae1ddff;
-  --seashell: #f8edebff;
-  --peach-puff: #ffd7baff;
-  --peach-crayola: #fec89aff;
 }
 
 header {
@@ -41,4 +37,14 @@ h4 {
 .weather-icon {
   width: 60px;
   height: 60px;
+}
+
+.forecast-card {
+  width: 10rem;
+}
+
+@media screen and (max-width: 576px) {
+  .forecast-card {
+    width: 100%;
+  }
 }
