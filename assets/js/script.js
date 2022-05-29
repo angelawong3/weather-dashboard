@@ -47,10 +47,11 @@ const fetchData = async (url, options = {}) => {
 };
 
 const renderCurrentData = (data) => {
+  console.log(data);
   const currentWeatherCard = `<div id="city-current" class="weather-card">
   <div class="text-center">
-    <h5 class="text-center p-2">${data}</h5>
-    <h6 class="text-center">Thursday, 19th May, 2022</h6>
+    <h5 class="text-center p-2">${data.cityName}</h5>
+    <h6 class="text-center">Monday 1st Jan 2022</h6>
     <img
       src="http://openweathermap.org/img/w/04d.png"
       alt="weather icon"
@@ -60,21 +61,21 @@ const renderCurrentData = (data) => {
   <div>
     <div class="row no-gutters">
       <div class="col-sm-12 col-md-4 p-2">Temperature</div>
-      <div class="col-sm-12 col-md-8 p-2">16 &deg; C</div>
+      <div class="col-sm-12 col-md-8 p-2">${data.weatherData.current.temp} &deg; C</div>
     </div>
     <div class="row no-gutters">
       <div class="col-sm-12 col-md-4 p-2">Humidity</div>
-      <div class="col-sm-12 col-md-8 p-2">20 &percnt;</div>
+      <div class="col-sm-12 col-md-8 p-2">${data.weatherData.current.humidity} &percnt;</div>
     </div>
     <div class="row no-gutters">
       <div class="col-sm-12 col-md-4 p-2">Wind Speed</div>
-      <div class="col-sm-12 col-md-8 p-2">10 MPH</div>
+      <div class="col-sm-12 col-md-8 p-2">${data.weatherData.current.wind_speed} MPH</div>
     </div>
     <div class="row no-gutters">
       <div class="col-sm-12 col-md-4 p-2">UN Index</div>
       <div class="col-sm-12 col-md-8 p-2">
         <span class="bg-secondary text-white px-3 rounded-2"
-          >1.5</span
+          >${data.weatherData.current.uvi}</span
         >
       </div>
     </div>
@@ -262,6 +263,43 @@ const renderRecentSearches = () => {
   }
 };
 
+const fetchWeatherData = async (cityName) => {
+  // fetch data from API
+  // current data url
+  const currentDataUrl = constructUrl(
+    "https://api.openweathermap.org/data/2.5/weather",
+    {
+      q: cityName,
+      appid: "1c6283f007c531f7d629fe699300456e",
+    }
+  );
+
+  const currentData = await fetchData(currentDataUrl);
+
+  // get lat, lon and city name
+  const lat = currentData?.coord?.lat;
+  const lon = currentData?.coord?.lon;
+  const displayCityName = currentData.name;
+
+  // forecast data url
+  const forecastDataUrl = constructUrl(
+    "https://api.openweathermap.org/data/2.5/onecall",
+    {
+      lat: lat,
+      lon: lon,
+      exclude: "minutely,hourly",
+      units: "metric",
+      appid: "1c6283f007c531f7d629fe699300456e",
+    }
+  );
+
+  const forecastData = await fetchData(forecastDataUrl);
+  return {
+    cityName: displayCityName,
+    weatherData: forecastData,
+  };
+};
+
 const handleRecentSearchClick = (event) => {
   const target = $(event.target);
 
@@ -281,23 +319,14 @@ const handleFormSubmit = async (event) => {
 
   // validate
   if (cityName) {
-    // fetch data from API
-    // url
-    const currentDataUrl = constructUrl(
-      "https://api.openweathermap.org/data/2.5/weather",
-      {
-        q: cityName,
-        appid: "1c6283f007c531f7d629fe699300456e",
-      }
-    );
-
-    const currentData = await fetchData(currentDataUrl);
+    // fecth weather data
+    const weatherData = await fetchWeatherData(cityName);
 
     // render current data
-    renderCurrentData(currentData);
+    renderCurrentData(weatherData);
 
     // render forecast data
-    renderForecastData();
+    renderForecastData(weatherData);
 
     // get recent searches from LS
     const recentSearches = readFromLS("recentSearches", []);
