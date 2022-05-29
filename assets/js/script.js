@@ -33,8 +33,15 @@ const renderRecentSearches = () => {
   }
 };
 
-const handleRecentSearchClick = () => {
-  console.log("Clicked");
+const handleRecentSearchClick = (event) => {
+  const target = $(event.target);
+
+  // restrict clicks only from li
+  if (target.is("li")) {
+    // get data city attribute
+    const cityName = target.attr("data-city");
+    console.log(cityName);
+  }
 };
 
 const onReady = () => {
