@@ -2,7 +2,12 @@
 const recentSearchHistory = $("#search-history");
 const searchForm = $("#search-form");
 const currentWeather = $("#current-weather");
-var today = moment().format("dddd, MMMM Do YYYY");
+const today = moment().format("dddd, MMMM Do YYYY");
+const day1 = moment().add(1, "days").format("ddd, MMMM Do");
+const day2 = moment().add(2, "days").format("ddd, MMMM Do");
+const day3 = moment().add(3, "days").format("ddd, MMMM Do");
+const day4 = moment().add(4, "days").format("ddd, MMMM Do");
+const day5 = moment().add(5, "days").format("ddd, MMMM Do");
 
 const readFromLS = (key, defaultValue) => {
   // get from LS using key name
@@ -54,7 +59,7 @@ const renderCurrentData = (data) => {
     <h5 class="text-center p-2">${data.cityName}</h5>
     <h6 class="text-center">${today}</h6>
     <img
-      src="http://openweathermap.org/img/w/04d.png"
+      src="http://openweathermap.org/img/w/${data.weatherData.current.weather[0].icon}.png"
       alt="weather icon"
     />
   </div>
@@ -86,7 +91,7 @@ const renderCurrentData = (data) => {
   currentWeather.append(currentWeatherCard);
 };
 
-const renderForecastData = () => {
+const renderForecastData = (data) => {
   const forecastWeatherCard = `<div id="5-day-forecast">
  <h5 class="text-left pt-2">5-day Forecast</h5>
  <hr />
@@ -96,24 +101,24 @@ const renderForecastData = () => {
      <div class="d-flex justify-content-center">
        <img
          class="weather-icon"
-         src="http://openweathermap.org/img/w/04d.png"
+         src="http://openweathermap.org/img/w/${data.weatherData.daily[0].weather[0].icon}.png"
          alt="weather icon"
        />
      </div>
      <div class="card-body">
-       <h6 class="card-title text-center"></h6>
+       <h6 class="card-title text-center">${day1}</h6>
        <div class="text-center">
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Temp</div>
-           <div class="col-sm-12 pl-1 border">16 &deg; C</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[0].temp.day} &deg; C</div>
          </div>
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Humidity</div>
-           <div class="col-sm-12 pl-1 border">20 &percnt;</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[0].humidity} &percnt;</div>
          </div>
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Wind</div>
-           <div class="col-sm-12 pl-1 border">10 MPH</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[0].wind_speed} MPH</div>
          </div>
        </div>
      </div>
@@ -123,24 +128,24 @@ const renderForecastData = () => {
      <div class="d-flex justify-content-center">
        <img
          class="weather-icon"
-         src="http://openweathermap.org/img/w/04d.png"
+         src="http://openweathermap.org/img/w/${data.weatherData.daily[0].weather[0].icon}.png"
          alt="weather icon"
        />
      </div>
      <div class="card-body">
-       <h6 class="card-title text-center">Tue, 20th May</h6>
+       <h6 class="card-title text-center">${day2}</h6>
        <div class="text-center">
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Temp</div>
-           <div class="col-sm-12 pl-1 border">16 &deg; C</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[1].temp.day} &deg; C</div>
          </div>
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Humidity</div>
-           <div class="col-sm-12 pl-1 border">20 &percnt;</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[1].humidity} &percnt;</div>
          </div>
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Wind</div>
-           <div class="col-sm-12 pl-1 border">10 MPH</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[1].wind_speed} MPH</div>
          </div>
        </div>
      </div>
@@ -150,24 +155,24 @@ const renderForecastData = () => {
      <div class="d-flex justify-content-center">
        <img
          class="weather-icon"
-         src="http://openweathermap.org/img/w/04d.png"
+         src="http://openweathermap.org/img/w/${data.weatherData.daily[0].weather[0].icon}.png"
          alt="weather icon"
        />
      </div>
      <div class="card-body">
-       <h6 class="card-title text-center">Tue, 20th May</h6>
+       <h6 class="card-title text-center">${day3}</h6>
        <div class="text-center">
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Temp</div>
-           <div class="col-sm-12 pl-1 border">16 &deg; C</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[2].temp.day} &deg; C</div>
          </div>
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Humidity</div>
-           <div class="col-sm-12 pl-1 border">20 &percnt;</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[2].humidity} &percnt;</div>
          </div>
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Wind</div>
-           <div class="col-sm-12 pl-1 border">10 MPH</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[2].wind_speed} MPH</div>
          </div>
        </div>
      </div>
@@ -177,24 +182,23 @@ const renderForecastData = () => {
      <div class="d-flex justify-content-center">
        <img
          class="weather-icon"
-         src="http://openweathermap.org/img/w/04d.png"
+         src="http://openweathermap.org/img/w/${data.weatherData.daily[0].weather[0].icon}.png"
          alt="weather icon"
        />
      </div>
      <div class="card-body">
-       <h6 class="card-title text-center">Tue, 20th May</h6>
+       <h6 class="card-title text-center">${day4}</h6>
        <div class="text-center">
          <div class="row no-gutters border">
-           <div class="col-sm-12 pl-1 border bg-light">Temp</div>
-           <div class="col-sm-12 pl-1 border">16 &deg; C</div>
+         <div class="col-sm-12 pl-1 border">${data.weatherData.daily[3].temp.day} &deg; C</div>
          </div>
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Humidity</div>
-           <div class="col-sm-12 pl-1 border">20 &percnt;</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[3].humidity} &percnt;</div>
          </div>
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Wind</div>
-           <div class="col-sm-12 pl-1 border">10 MPH</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[3].wind_speed} MPH</div>
          </div>
        </div>
      </div>
@@ -204,24 +208,23 @@ const renderForecastData = () => {
      <div class="d-flex justify-content-center">
        <img
          class="weather-icon"
-         src="http://openweathermap.org/img/w/04d.png"
+         src="http://openweathermap.org/img/w/${data.weatherData.daily[0].weather[0].icon}.png"
          alt="weather icon"
        />
      </div>
      <div class="card-body">
-       <h6 class="card-title text-center">Tue, 20th May</h6>
+       <h6 class="card-title text-center">${day5}</h6>
        <div class="text-center">
          <div class="row no-gutters border">
-           <div class="col-sm-12 pl-1 border bg-light">Temp</div>
-           <div class="col-sm-12 pl-1 border">16 &deg; C</div>
+         <div class="col-sm-12 pl-1 border">${data.weatherData.daily[4].temp.day} &deg; C</div>
          </div>
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Humidity</div>
-           <div class="col-sm-12 pl-1 border">20 &percnt;</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[4].humidity} &percnt;</div>
          </div>
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Wind</div>
-           <div class="col-sm-12 pl-1 border">10 MPH</div>
+           <div class="col-sm-12 pl-1 border">${data.weatherData.daily[4].wind_speed} MPH</div>
          </div>
        </div>
      </div>
