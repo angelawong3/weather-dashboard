@@ -25,10 +25,31 @@ const writeToLS = (key, value) => {
   localStorage.setItem(key, stringifiedValue);
 };
 
-const renderCurrentData = () => {
+const constructUrl = (baseUrl, params) => {
+  const queryParams = new URLSearchParams(params).toString();
+
+  return queryParams ? `${baseUrl}?${queryParams}` : baseUrl;
+};
+
+const fetchData = async (url, options = {}) => {
+  try {
+    const response = await fetch(url, options);
+
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      throw new Error("Failed to fetch data");
+    }
+  } catch (error) {
+    throw new Error(error, message);
+  }
+};
+
+const renderCurrentData = (data) => {
   const currentWeatherCard = `<div id="city-current" class="weather-card">
   <div class="text-center">
-    <h5 class="text-center p-2">Birmingham</h5>
+    <h5 class="text-center p-2">${data}</h5>
     <h6 class="text-center">Thursday, 19th May, 2022</h6>
     <img
       src="http://openweathermap.org/img/w/04d.png"
@@ -252,7 +273,7 @@ const handleRecentSearchClick = (event) => {
   }
 };
 
-const handleFormSubmit = (event) => {
+const handleFormSubmit = async (event) => {
   event.preventDefault();
 
   // get form input value
@@ -261,9 +282,19 @@ const handleFormSubmit = (event) => {
   // validate
   if (cityName) {
     // fetch data from API
+    // url
+    const currentDataUrl = constructUrl(
+      "https://api.openweathermap.org/data/2.5/weather",
+      {
+        q: cityName,
+        appid: "1c6283f007c531f7d629fe699300456e",
+      }
+    );
+
+    const currentData = await fetchData(currentDataUrl);
 
     // render current data
-    renderCurrentData();
+    renderCurrentData(currentData);
 
     // render forecast data
     renderForecastData();
