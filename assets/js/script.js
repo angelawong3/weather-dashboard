@@ -2,6 +2,7 @@
 const recentSearchHistory = $("#search-history");
 const searchForm = $("#search-form");
 const currentWeather = $("#current-weather");
+var today = moment().format("dddd, MMMM Do YYYY");
 
 const readFromLS = (key, defaultValue) => {
   // get from LS using key name
@@ -51,7 +52,7 @@ const renderCurrentData = (data) => {
   const currentWeatherCard = `<div id="city-current" class="weather-card">
   <div class="text-center">
     <h5 class="text-center p-2">${data.cityName}</h5>
-    <h6 class="text-center">Monday 1st Jan 2022</h6>
+    <h6 class="text-center">${today}</h6>
     <img
       src="http://openweathermap.org/img/w/04d.png"
       alt="weather icon"
@@ -100,7 +101,7 @@ const renderForecastData = () => {
        />
      </div>
      <div class="card-body">
-       <h6 class="card-title text-center">Tue, 20th May</h6>
+       <h6 class="card-title text-center"></h6>
        <div class="text-center">
          <div class="row no-gutters border">
            <div class="col-sm-12 pl-1 border bg-light">Temp</div>
