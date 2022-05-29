@@ -1,5 +1,6 @@
 // global declaration
 const recentSearchHistory = $("#search-history");
+const searchForm = $("#search-form");
 
 const readFromLS = (key, defaultValue) => {
   // get from LS using key name
@@ -13,6 +14,14 @@ const readFromLS = (key, defaultValue) => {
   } else {
     return defaultValue;
   }
+};
+
+const writeToLS = (key, value) => {
+  // convert value to string
+  const stringifiedValue = JSON.stringify(value);
+
+  // set stringified value to LS for key name
+  localStorage.setItem(key, stringifiedValue);
 };
 
 const renderRecentSearches = () => {
@@ -39,7 +48,7 @@ const renderRecentSearches = () => {
   } else {
     // else show alert
     const alert = `<div class="alert alert-info text-center" role="alert">
-    No search history!
+    No search history.
   </div>`;
 
     // append to parent
@@ -58,10 +67,38 @@ const handleRecentSearchClick = (event) => {
   }
 };
 
+const handleFormSubmit = (event) => {
+  event.preventDefault();
+
+  // get form input value
+  const cityName = $("#search-input").val();
+
+  // validate
+  if (cityName) {
+    console.log(cityName);
+
+    // get recent searches from LS
+    const recentSearches = readFromLS("recentSearches", []);
+
+    // push city name to array
+    recentSearches.push(cityName);
+
+    // write recent searches to LS
+    writeToLS("recentSearches", recentSearches);
+
+    // remove previous items
+    recentSearchHistory.children().last().remove();
+
+    // re-render recent cities
+    renderRecentSearches();
+  }
+};
+
 const onReady = () => {
   renderRecentSearches();
 };
 
 recentSearchHistory.click(handleRecentSearchClick);
+searchForm.submit(handleFormSubmit);
 
 $(document).ready(onReady);
