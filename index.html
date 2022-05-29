@@ -26,7 +26,7 @@
   <body>
     <!-- header -->
     <header>
-      <h1 class="text-center text-white">Weather Dashboard</h2>
+      <h1 class="text-center text-white">Weather Dashboard</h1>
     </header>
 
     <!-- main -->
@@ -39,18 +39,20 @@
             <hr />
             <form class="p-3" id="search-form">
               <div class="mb-3">
-              <input 
-                ype="text" 
-                class="form-control" 
-                id="searchInput" 
-                placeholder="Enter city name"
-              />
-            </div>
-            <div>
-            <button type="submit" class="btn btn-info btn-block">Search</button>
-            </div>
-          </form>
-        </div>
+                <input
+                  ype="text"
+                  class="form-control"
+                  id="searchInput"
+                  placeholder="Enter city name"
+                />
+              </div>
+              <div>
+                <button type="submit" class="btn btn-info btn-block">
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
 
           <!-- seach history -->
           <div id="search-history">
@@ -66,17 +68,18 @@
           </div>
         </div>
 
-      <!-- shd be rendered in the js file -->
-      <!-- section to check current weather and forecast-->
+        <!-- shd be rendered in the js file -->
+        <!-- section to check current weather and forecast-->
         <div class="col-sm-12 col-md-9 p-5">
           <!-- col for current weather -->
           <div id="city-current" class="weather-card">
             <div class="text-center">
               <h5 class="text-center p-2">Birmingham</h5>
               <h6 class="text-center">Thursday, 19th May, 2022</h6>
-              <img 
-              src="http://openweathermap.org/img/w/04d.png" 
-              alt="weather icon"/>  
+              <img
+                src="http://openweathermap.org/img/w/04d.png"
+                alt="weather icon"
+              />
             </div>
             <!-- weather metric div -->
             <div>
@@ -95,46 +98,157 @@
               <div class="row no-gutters">
                 <div class="col-sm-12 col-md-4 p-2">UN Index</div>
                 <div class="col-sm-12 col-md-8 p-2">
-                  <span class="bg-secondary text-white px-3 rounded-2">1.5</span>
-              </div>
-            </div>
-          </div>
-
-          </div>
-        <!-- col for 5 days forecast -->
-         <div id="5-day-forecast">
-           <h5 class="text-left pt-2">5-day Forecast</h5>
-           <hr />
-           <div>
-             <!-- card 1 -->
-           <div class="card" style="width: 10rem">
-            <div class="d-flex justify-content-center">
-            <img 
-            class="weather-icon"
-            src="http://openweathermap.org/img/w/04d.png" 
-            alt="weather icon"
-            />
-          </div>
-            <div class="card-body">
-              <h6 class="card-title text-center">Tue, 20th May</h6>
-              <div class="text-center">
-                <div class="row no-gutters border">
-                  <div class="col-sm-12 pl-1 border bg-light">Temp</div>
-                  <div class="col-sm-12 pl-1 border">16 &deg; C</div>
-                </div>
-                <div class="row no-gutters border">
-                  <div class="col-sm-12 pl-1 border bg-light">Humidity</div>
-                  <div class="col-sm-12 pl-1 border">20 &percnt;</div>
-                </div>
-                <div class="row no-gutters border">
-                  <div class="col-sm-12 pl-1 border bg-light">Wind</div>
-                  <div class="col-sm-12 pl-1 border">10 MPH</div>
+                  <span class="bg-secondary text-white px-3 rounded-2"
+                    >1.5</span
+                  >
                 </div>
               </div>
             </div>
           </div>
+          <!-- col for 5 days forecast -->
+          <div id="5-day-forecast">
+            <h5 class="text-left pt-2">5-day Forecast</h5>
+            <hr />
+            <div class="d-flex flex-row justify-content-center flex-wrap">
+              <!-- card 1 -->
+              <div class="card m-1" style="width: 10rem">
+                <div class="d-flex justify-content-center">
+                  <img
+                    class="weather-icon"
+                    src="http://openweathermap.org/img/w/04d.png"
+                    alt="weather icon"
+                  />
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title text-center">Tue, 20th May</h6>
+                  <div class="text-center">
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Temp</div>
+                      <div class="col-sm-12 pl-1 border">16 &deg; C</div>
+                    </div>
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Humidity</div>
+                      <div class="col-sm-12 pl-1 border">20 &percnt;</div>
+                    </div>
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Wind</div>
+                      <div class="col-sm-12 pl-1 border">10 MPH</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- card 2 -->
+              <div class="card m-1" style="width: 10rem">
+                <div class="d-flex justify-content-center">
+                  <img
+                    class="weather-icon"
+                    src="http://openweathermap.org/img/w/04d.png"
+                    alt="weather icon"
+                  />
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title text-center">Tue, 20th May</h6>
+                  <div class="text-center">
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Temp</div>
+                      <div class="col-sm-12 pl-1 border">16 &deg; C</div>
+                    </div>
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Humidity</div>
+                      <div class="col-sm-12 pl-1 border">20 &percnt;</div>
+                    </div>
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Wind</div>
+                      <div class="col-sm-12 pl-1 border">10 MPH</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- card 3 -->
+              <div class="card m-1" style="width: 10rem">
+                <div class="d-flex justify-content-center">
+                  <img
+                    class="weather-icon"
+                    src="http://openweathermap.org/img/w/04d.png"
+                    alt="weather icon"
+                  />
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title text-center">Tue, 20th May</h6>
+                  <div class="text-center">
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Temp</div>
+                      <div class="col-sm-12 pl-1 border">16 &deg; C</div>
+                    </div>
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Humidity</div>
+                      <div class="col-sm-12 pl-1 border">20 &percnt;</div>
+                    </div>
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Wind</div>
+                      <div class="col-sm-12 pl-1 border">10 MPH</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- card 4 -->
+              <div class="card m-1" style="width: 10rem">
+                <div class="d-flex justify-content-center">
+                  <img
+                    class="weather-icon"
+                    src="http://openweathermap.org/img/w/04d.png"
+                    alt="weather icon"
+                  />
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title text-center">Tue, 20th May</h6>
+                  <div class="text-center">
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Temp</div>
+                      <div class="col-sm-12 pl-1 border">16 &deg; C</div>
+                    </div>
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Humidity</div>
+                      <div class="col-sm-12 pl-1 border">20 &percnt;</div>
+                    </div>
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Wind</div>
+                      <div class="col-sm-12 pl-1 border">10 MPH</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- card 5 -->
+              <div class="card m-1" style="width: 10rem">
+                <div class="d-flex justify-content-center">
+                  <img
+                    class="weather-icon"
+                    src="http://openweathermap.org/img/w/04d.png"
+                    alt="weather icon"
+                  />
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title text-center">Tue, 20th May</h6>
+                  <div class="text-center">
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Temp</div>
+                      <div class="col-sm-12 pl-1 border">16 &deg; C</div>
+                    </div>
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Humidity</div>
+                      <div class="col-sm-12 pl-1 border">20 &percnt;</div>
+                    </div>
+                    <div class="row no-gutters border">
+                      <div class="col-sm-12 pl-1 border bg-light">Wind</div>
+                      <div class="col-sm-12 pl-1 border">10 MPH</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          </div>
+        </div>
+      </div>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
