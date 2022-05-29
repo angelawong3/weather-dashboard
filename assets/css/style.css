@@ -37,3 +37,8 @@ h4 {
 .weather-card {
   background-color: var(--pale-purple-pantone);
 }
+
+.weather-icon {
+  width: 60px;
+  height: 60px;
+}
