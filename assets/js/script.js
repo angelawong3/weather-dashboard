@@ -21,7 +21,21 @@ const renderRecentSearches = () => {
 
   // ["Birmingham", "London"]
   if (recentSearches.length) {
+    const createRecentCity = (city) => {
+      return `<li class="list-group-item border-0" data-city="${city}">
+      ${city}
+    </li>`;
+    };
+
+    const recentCities = recentSearches.map(createRecentCity).join("");
+
     // if render recent searches
+    const ul = `<ul class="list-group">
+      ${recentCities}
+    </ul>`;
+
+    // append to parent
+    recentSearchHistory.append(ul);
   } else {
     // else show alert
     const alert = `<div class="alert alert-info text-center" role="alert">
