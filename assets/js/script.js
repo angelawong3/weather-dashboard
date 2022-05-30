@@ -46,6 +46,18 @@ const fetchData = async (url, options = {}) => {
   }
 };
 
+const getUviClassName = (uvi) => {
+  if (uvi >= 0 && uvi <= 2) {
+    return "bg-success";
+  }
+  if (uvi > 2 && uvi <= 5) {
+    return "bg-warning";
+  }
+  if (uvi > 6) {
+    return "bg-danger";
+  }
+};
+
 const renderCurrentData = (data) => {
   console.log(data);
   const currentWeatherCard = `<div id="city-current" class="weather-card">
@@ -82,7 +94,9 @@ const renderCurrentData = (data) => {
     <div class="row no-gutters">
       <div class="col-sm-12 col-md-4 p-2">UN Index</div>
       <div class="col-sm-12 col-md-8 p-2">
-        <span class="bg-secondary text-white px-3 rounded-2"
+        <span class="text-white px-3 rounded-2 ${getUviClassName(
+          data.weatherData.current.uvi
+        )}"
           >${data.weatherData.current.uvi}</span
         >
       </div>
@@ -365,7 +379,8 @@ const handleRecentSearchClick = (event) => {
   if (target.is("li")) {
     // get data city attribute
     const cityName = target.attr("data-city");
-    console.log(cityName);
+
+    renderWeatherInfo(cityName);
   }
 };
 
@@ -397,17 +412,19 @@ const handleFormSubmit = async (event) => {
     // get recent searches from LS
     const recentSearches = readFromLS("recentSearches", []);
 
-    // push city name to array
-    recentSearches.push(cityName);
+    if (!recentSearches.includes(cityName)) {
+      // push city name to array
+      recentSearches.push(cityName);
 
-    // write recent searches to LS
-    writeToLS("recentSearches", recentSearches);
+      // write recent searches to LS
+      writeToLS("recentSearches", recentSearches);
 
-    // remove previous items
-    recentSearchHistory.children().last().remove();
+      // remove previous items
+      recentSearchHistory.children().last().remove();
 
-    // re-render recent cities
-    renderRecentSearches();
+      // re-render recent cities
+      renderRecentSearches();
+    }
   }
 };
 
